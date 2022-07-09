@@ -47,8 +47,8 @@ int main(int argc, char* argv[]) {
 
     cout << endl << "*** clock_gettime() ***" << endl;
     cout << "seconds since epoch: " << ts.tv_sec << endl;
-    cout << "tv_usec (Nanoseconds): " << ts.tv_nsec << endl;
-    cout << "tv_usec (ms): " << ts.tv_nsec / 1000 / 1000 << endl;
+    cout << "tv_nsec (Nanoseconds): " << ts.tv_nsec << endl;
+    cout << "tv_nsec (ms): " << ts.tv_nsec / 1000 / 1000 << endl;
 
     cout << endl << "*** to clx::date_time ***" << endl;
     // sec to clx::date_time

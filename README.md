@@ -13,8 +13,8 @@ tv_usec (ms): 82
 
 *** clock_gettime() ***
 seconds since epoch: 1657329847
-tv_usec (Nanoseconds): 83046708
-tv_usec (ms): 83
+tv_nsec (Nanoseconds): 83046708
+tv_nsec (ms): 83
 
 *** to clx::date_time ***
 2022-07-09T01:24:07.083
