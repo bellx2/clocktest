@@ -34,15 +34,25 @@ int main(int argc, char* argv[]) {
     gettimeofday(&time_now, nullptr);
     time_t msecs_time = (time_now.tv_sec * 1000) + (time_now.tv_usec / 1000);
 
+    cout << "*** gettimeofday() ***" << endl;
     cout << "seconds since epoch: " << time_now.tv_sec << endl;
     cout << "milliseconds since epoch: "  << msecs_time << endl;
     cout << "tv_usec (Microseconds): " << time_now.tv_usec << endl;
     cout << "tv_usec (ms): " << time_now.tv_usec / 1000 << endl;
 
+    // Get ms (ns)
+
+    struct timespec ts;
+    clock_gettime(CLOCK_REALTIME, &ts);
+
+    cout << endl << "*** clock_gettime() ***" << endl;
+    cout << "seconds since epoch: " << ts.tv_sec << endl;
+    cout << "tv_usec (Nanoseconds): " << ts.tv_nsec << endl;
+    cout << "tv_usec (ms): " << ts.tv_nsec / 1000 / 1000 << endl;
+
+    cout << endl << "*** to clx::date_time ***" << endl;
     // sec to clx::date_time
-
-    cout << clx::date_time( time_now.tv_sec ).to_string<char>() << clx::format(".%03d") % (time_now.tv_usec / 1000) << endl;
-
+    cout << clx::date_time( ts.tv_sec ).to_string<char>() << clx::format(".%03d") % (ts.tv_nsec / 1000 / 1000) << endl;
     // defualt clx::datetime constructor
     cout << clx::date_time().to_string<char>() << endl;
 
